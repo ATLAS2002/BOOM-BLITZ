@@ -1,0 +1,125 @@
+.main {
+  height: 100vh;
+  width: 100%;
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* perspective: 200px; */
+}
+
+.board {
+  height: 75vh;
+  width: 75vh;
+  min-width: 75vh;
+  outline: 15px solid rgb(99, 70, 26);
+  background-color: rgb(99, 70, 26);
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(var(--block-count), 1fr);
+  grid-template-rows: repeat(var(--block-count), 1fr);
+  overflow: hidden;
+  /* transform: rotateX(55deg); */
+}
+
+.shine::before {
+  content: "";
+  height: 30%;
+  width: 120%;
+  background-color: rgb(255, 255, 255, 0.5);
+  filter: blur(80px);
+  top: -10%; 
+  left: -10%;
+  transform: translate(-50%, -50%) rotate(135deg);
+  position: absolute;
+  z-index: 999;
+  animation: shine 3s 1;
+}
+
+@keyframes shine {
+  from {
+    top: -10%; 
+    left: -10%;
+  }
+  to {
+    top: 120%;
+    left: 120%;
+  }
+}
+
+.btn {
+  position: fixed;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .dcr {
+    position: relative;
+    border-radius: 50px 0 0 50px;
+    background-color: rgb(255, 0, 0, 0.6);
+    box-shadow: inset 1px 1px 3px 1px rgba(255, 255, 255, 0.7);
+
+    /* &::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 66px;
+      border-top: 2px solid rgba(0, 0, 0, 0.384);
+      border-bottom: 2px solid black;
+      height: 100%;
+      width: 102%;
+      background-color: rgba(128, 128, 128, 0.5);
+    } */
+  }
+
+  .inc {
+    border-radius: 0 50px 50px 0;
+    background-color: rgb(0, 0, 255, 0.6);
+    box-shadow: inset -1px 1px 3px 1px rgba(255, 255, 255, 0.7);
+  }
+}
+
+h1 {
+  margin: 5%;
+  z-index: 999;
+}
+
+.btn button {
+  width: 30%;
+  min-width: 4em;
+  height: inherit;
+  font-weight: 900;
+  font-size: x-large;
+}
+
+.reset {
+  position: fixed;
+  height: 60px;
+  width: 30%;
+  min-width: 5em;
+  max-width: 200px;
+  background-color: yellow;
+  font-size: xx-large;
+  font-weight: bolder;
+  border-radius: 20px;
+  z-index: 999;
+  top: 95%;
+  left: 50%; 
+  border: none;
+  color: maroon;
+  filter: drop-shadow(0 0 5px rgb(190, 123, 0));
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+
+  &:hover {
+    text-shadow: -1px 1px 5px orangered;
+    filter: none;
+    box-shadow: inset 0 0 15px 5px brown;
+  }
+}
